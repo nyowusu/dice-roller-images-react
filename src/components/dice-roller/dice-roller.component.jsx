@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Die from "../die/die.component";
+import getRandonInt from "../../randomizer";
 
 function DiceRoller({ dieOne, dieTwo, rollDieOne, rollDieTwo }) {
   const [randOne, setRandOne] = useState(dieOne);
@@ -10,12 +11,6 @@ function DiceRoller({ dieOne, dieTwo, rollDieOne, rollDieTwo }) {
     setRandOne(dieOne);
     setRandTwo(dieTwo);
   }, [dieOne, dieTwo]);
-
-  function getRandonInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
 
   const handleClick = () => {
     //dispatch an action to change to the current number rolled for each die
